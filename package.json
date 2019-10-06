@@ -1,0 +1,11 @@
+{
+  "name": "plumpack-assets",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/plumpack/assets.git",
+  "author": "Paul Knopf <pauldotknopf@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^4.3.1"
+  }
+}
