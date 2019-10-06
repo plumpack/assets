@@ -6,6 +6,6 @@
   "author": "Paul Knopf <pauldotknopf@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "bootstrap": "^4.3.1"
+    "bootstrap-scss": "^4.3.1"
   }
 }
