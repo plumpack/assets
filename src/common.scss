@@ -1,0 +1,89 @@
+// I'm going to want to stay close to this theme: https://themes.getbootstrap.com/preview/?theme_id=5348
+// I will probably use it when the product is closer to completed.
+// Direct url: https://demo.webpixels.io/purpose-website-ui-kit-v2.0.1/
+
+$fa-font-path: "~font-awesome/fonts";
+@import "~font-awesome/scss/font-awesome";
+
+@import "~bootstrap-scss/bootstrap";
+
+.validation-summary-errors {
+    ul {
+        margin: 0;
+        padding: 0;
+
+        li {
+            list-style-type: none;
+        }
+    }
+}
+
+.plumpack-brand {
+    a {
+        display: block;
+        color: $body-color;
+        font-size: $font-size-lg * 2;
+
+        &:hover {
+            color: $body-color;
+            text-decoration: none;
+        }
+
+        img {
+            width: 50px;
+            display: inline-block;
+        }
+
+        span {
+            vertical-align: middle;
+        }
+
+        .second {
+            color: lighten($body-color, 30%);
+        }
+    }
+}
+
+.navbar {
+    background: lighten($primary, 58%);
+    
+    .plumpack-brand {
+        margin-bottom: 0;
+        a {
+            @extend .navbar-brand;
+            font-size: $font-size-lg;
+            img {
+                width:30px;
+            }
+        }
+    }
+}
+
+.site-alert {
+    padding: $alert-padding-y $alert-padding-x;
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+
+    &.success {
+        @extend .alert-info;
+    }
+
+    &.failure {
+        @extend .alert-danger;
+    }
+}
+
+.main {
+    margin-top: map-get($spacers, 3);
+}
+
+form {
+    .input-validation-error {
+        @extend .is-invalid;
+    }
+    .field-validation-error {
+        @extend .invalid-feedback;
+    }
+}
