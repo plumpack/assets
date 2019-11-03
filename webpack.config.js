@@ -1,16 +1,22 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = function(options) {
-    return {
+    var result = {
         mode: options.mode,
         entry: {
             styles: "./src/styles.js",
+            scripts: "./src/scripts.ts"
         },
         output: {
             path: options.outputPath
         },
         module: {
             rules: [{
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
+            },
+            {
                 test: /\.(css|sass|scss)$/,
                 use: [
                     MiniCssExtractPlugin.loader,
@@ -50,6 +56,13 @@ module.exports = function(options) {
                 chunkFilename: "[id].css",
                 ignoreOrder: false, // Enable to remove warnings about conflicting order
             })
-        ]
+        ],
+        resolve: {
+            extensions: [ '.tsx', '.ts', '.js' ],
+        },
     };
+    if(result.mode == "development") {
+        result.devtool = "source-map";
+    }
+    return result;
 };
