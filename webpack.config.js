@@ -4,11 +4,13 @@ module.exports = function(options) {
     var result = {
         mode: options.mode,
         entry: {
-            styles: "./src/styles.js",
-            scripts: "./src/scripts.ts"
+            styles: "./src/styles/styles.js",
+            scripts: "./src/scripts/scripts.ts"
         },
         output: {
-            path: options.outputPath
+            path: options.outputPath,
+            libraryTarget: 'var',
+            library: 'PlumPack'
         },
         module: {
             rules: [{
