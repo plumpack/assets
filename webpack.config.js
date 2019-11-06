@@ -1,4 +1,5 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const VueLoaderPlugin = require("vue-loader/lib/plugin");
 
 module.exports = function(options) {
     var result = {
@@ -17,6 +18,10 @@ module.exports = function(options) {
                 test: /\.tsx?$/,
                 use: 'ts-loader',
                 exclude: /node_modules/,
+            },
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader'
             },
             {
                 test: /\.(css|sass|scss)$/,
@@ -57,10 +62,15 @@ module.exports = function(options) {
                 filename: "[name].css",
                 chunkFilename: "[id].css",
                 ignoreOrder: false, // Enable to remove warnings about conflicting order
-            })
+            }),
+            new VueLoaderPlugin()
         ],
         resolve: {
-            extensions: [ '.tsx', '.ts', '.js' ],
+            extensions: [ '.tsx', '.ts', '.js', 'vue' ],
+            alias: {
+                // For the runtime compiler.
+                'vue$': 'vue/dist/vue.esm.js'
+            }
         },
     };
     if(result.mode == "development") {
