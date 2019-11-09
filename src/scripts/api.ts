@@ -5,6 +5,10 @@ export default class Api {
     constructor(baseUrl: string) {
         this._baseUrl = baseUrl;
     }
+    public redirect(location: string) {
+        let r = url.resolve(this._baseUrl, location);
+        window.location.href = r;
+    }
     public post<TRequest, TResponse extends {}>(requestUrl: string, request: TRequest): Promise<TResponse> {
         let r = url.resolve(this._baseUrl, requestUrl);
         return new Promise<TResponse>(resolve => {
