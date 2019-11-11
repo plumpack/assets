@@ -87,3 +87,8 @@ form {
         @extend .invalid-feedback;
     }
 }
+
+.fitwidth {
+    width: 1px;
+    white-space: nowrap;
+}
